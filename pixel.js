@@ -10,16 +10,19 @@ window.addEventListener('load', function () {
             this.effect = effect;
             this.x = Math.random() * this.effect.width;
             this.y = Math.random() * this.effect.height;
-            this.size = 10;
-            this.vx = Math.random() * 10 - 5;
-            this.vy = Math.random() * 10 - 5;
+            this.size = Math.random() * 15 + 3;
+            this.vx = Math.random() * 3 - 1.5;
+            this.vy = Math.random() * 3 - 1.5;
+            this.color = 'yellow';
         }
         draw(context) {
             context.fillRect(this.x, this.y, this.size, this.size);
+            context.fillStyle = this.color;
         }
         update() {
             this.x += this.vx;
             this.y += this.vy;
+            this.size += 0.1;
         }
 
     }
@@ -36,7 +39,7 @@ window.addEventListener('load', function () {
             this.y = this.centery - this.image.height * 0.5;
         }
         init() {
-            for (let i = 0; i < 100; i++) {
+            for (let i = 0; i < 300; i++) {
                 this.particlesArray.push(new Particle(this));
             }
 
