@@ -1,0 +1,36 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#canvas1{
+    position: absolute;
+    background-color: #ffffff;
+}
+
+.controls{
+    position: absolute;
+    z-index: 1000;
+}
+
+#image1{
+    display: none;
+}
+
+#WarpButton{
+    padding: 1rem;
+    margin: 1rem;
+    background-color: #ff0000;
+    color: #ffffff;
+    border-radius: 10px;
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+#WarpButton:hover{
+    background-color: #ffffff;
+    color: #ff0000;
+    border: 1px solid #ff0000;
+    cursor: pointer;
+}
