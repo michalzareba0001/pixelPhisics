@@ -4,14 +4,25 @@
     box-sizing: border-box;
 }
 
+body{
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
 #canvas1{
     position: absolute;
-    background-color: #ffffff;
+    background-color: #000000;
 }
 
 .controls{
     position: absolute;
     z-index: 1000;
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 #image1{
@@ -19,13 +30,19 @@
 }
 
 #WarpButton{
-    padding: 1rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
     margin: 1rem;
     background-color: #ff0000;
     color: #ffffff;
     border-radius: 10px;
-    font-size: 1.3rem;
+    font-size: 1.6rem;
     font-weight: 600;
+    max-width: 300%;
+    margin-top: 85vh;
+    line-height: 1.5rem;
 }
 
 #WarpButton:hover{
@@ -33,4 +50,10 @@
     color: #ff0000;
     border: 1px solid #ff0000;
     cursor: pointer;
+}
+
+.dont{
+    color: #ffffff;
+    margin-top: 85vh;
+    text-align: center;
 }

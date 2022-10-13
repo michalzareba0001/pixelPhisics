@@ -16,13 +16,13 @@ window.addEventListener('load', function () {
             this.vx = 0;
             this.vy = 0;
             this.color = color;
-            this.ease = 0.5;
+            this.ease = 0.9;
             this.dx = 0;
             this.dy = 0;
             this.distance = 0;
             this.force = 0;
             this.angle = 0;
-            this.friction = 0.5;
+            this.friction = 0.93;
         }
         draw(context) {
             context.fillRect(this.x, this.y, this.size, this.size);
@@ -40,7 +40,7 @@ window.addEventListener('load', function () {
             if (this.distance < this.effect.mouse.radius) {
               this.angle = Math.atan2(this.dy, this.dx);
               this.vx += this.force * Math.cos(this.angle);
-              this.vh += this.force * Math.sin(this.angle);
+              this.vy += this.force * Math.sin(this.angle);
             }
         }
         warp() {
@@ -63,7 +63,7 @@ window.addEventListener('load', function () {
             this.y = this.centery - this.image.height * 0.5;
             this.gap = 4;
             this.mouse = {
-                radius: 50000,
+                radius: 100000,
                 x: undefined,
                 y: undefined
             }

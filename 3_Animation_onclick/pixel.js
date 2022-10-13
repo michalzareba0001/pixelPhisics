@@ -8,15 +8,15 @@ window.addEventListener('load', function () {
     class Particle {
         constructor(effect, x, y, color) {
             this.effect = effect;
-            this.x = 0;
-            this.y = 0;
+            this.x = Math.random() * this.effect.width;
+            this.y = Math.random() * this.effect.height;
             this.OriginX = Math.floor(x);
             this.OriginY = Math.floor(y);
             this.size = this.effect.gap;
             this.vx = 0;
             this.vy = 0;
             this.color = color;
-            this.ease = 0.1;
+            this.ease = 0.8;
         }
         draw(context) {
             context.fillRect(this.x, this.y, this.size, this.size);
@@ -27,9 +27,10 @@ window.addEventListener('load', function () {
             this.y += (this.OriginY - this.y) * this.ease;
         }
         warp() {
-            this.x = Math.random() * this.effect.width;
-            this.y = Math.random() * this.effect.height;
-            this.ease = 0.5;
+          //explosion
+            this.ease = 0.05;
+            this.OriginX = (Math.random() * this.effect.width * 5) - this.effect.width * 2.5;
+            this.OriginY = (Math.random() * this.effect.height * 5) - this.effect.height * 2.5;
         }
 
     }
@@ -42,9 +43,9 @@ window.addEventListener('load', function () {
             this.image = document.getElementById('image1');
             this.centerx = this.width * 0.5;
             this.centery = this.height * 0.5;
-            this.x = this.centerx - this.image.width * 0.5;
+            this.x = this.centerx - this.image.width * 0.5 - 0.9;
             this.y = this.centery - this.image.height * 0.5;
-            this.gap = 4;
+            this.gap = 2;
         }
         init(context) {
             context.drawImage(this.image, this.x, this.y,);

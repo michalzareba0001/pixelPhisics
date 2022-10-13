@@ -8,21 +8,21 @@ window.addEventListener('load', function () {
     class Particle {
         constructor(effect, x, y, color) {
             this.effect = effect;
-            this.x = 0;
-            this.y = 0;
+            this.x = Math.random() * this.effect.width;
+            this.y = Math.random() * this.effect.height;
             this.OriginX = Math.floor(x);
             this.OriginY = Math.floor(y);
             this.size = this.effect.gap;
             this.vx = 0;
             this.vy = 0;
             this.color = color;
-            this.ease = 0.5;
+            this.ease = 0.1;
             this.dx = 0;
             this.dy = 0;
             this.distance = 0;
             this.force = 0;
             this.angle = 0;
-            this.friction = 0.5;
+            this.friction = 0.92;
         }
         draw(context) {
             context.fillRect(this.x, this.y, this.size, this.size);
@@ -38,14 +38,13 @@ window.addEventListener('load', function () {
             this.y += (this.vy *= this.friction) + (this.OriginY - this.y) * this.ease;
 
             if (this.distance < this.effect.mouse.radius) {
-              this.angle = Math.atan2(this.dy, this.dx);
-              this.vx += this.force * Math.cos(this.angle);
-              this.vh += this.force * Math.sin(this.angle);
+                this.angle = Math.atan2(this.dy, this.dx);
+                this.vx += this.force * Math.cos(this.angle);
+                this.vy += this.force * Math.sin(this.angle);
             }
         }
         warp() {
-            this.x = Math.random() * this.effect.width;
-            this.y = Math.random() * this.effect.height;
+
             this.ease = 0.5;
         }
 
@@ -61,9 +60,9 @@ window.addEventListener('load', function () {
             this.centery = this.height * 0.5;
             this.x = this.centerx - this.image.width * 0.5;
             this.y = this.centery - this.image.height * 0.5;
-            this.gap = 4;
+            this.gap = 2;
             this.mouse = {
-                radius: 50000,
+                radius: 500,
                 x: undefined,
                 y: undefined
             }
