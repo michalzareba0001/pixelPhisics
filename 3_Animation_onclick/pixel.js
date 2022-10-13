@@ -5,11 +5,13 @@ window.addEventListener('load', function () {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 
+    const explosion01 = new Audio('./explosion01.mp3');
+
     class Particle {
         constructor(effect, x, y, color) {
             this.effect = effect;
-            this.x = Math.random() * this.effect.width;
-            this.y = Math.random() * this.effect.height;
+            this.x = x;
+            this.y = y;
             this.OriginX = Math.floor(x);
             this.OriginY = Math.floor(y);
             this.size = this.effect.gap;
@@ -28,7 +30,7 @@ window.addEventListener('load', function () {
         }
         warp() {
           //explosion
-            this.ease = 0.05;
+            this.ease = Math.random() * 0.09 + 0.02;
             this.OriginX = (Math.random() * this.effect.width * 5) - this.effect.width * 2.5;
             this.OriginY = (Math.random() * this.effect.height * 5) - this.effect.height * 2.5;
         }
@@ -96,8 +98,11 @@ window.addEventListener('load', function () {
 
     const button = document.getElementById('WarpButton');
     button.addEventListener('click', function () {
+        explosion01.play();
         effect.warp();
     });
+
+    
 
 });
 
