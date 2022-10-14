@@ -55,11 +55,11 @@ body{
     border: 5px outset #ffffff;
     transform-style: preserve-3d;
     min-height: 6rem;
+    font-family: monospace;
 }
 
 
 #WarpButton:hover{
-    background-color: #ffffff;
     color: #ff0000;
     border: 5px outset #ff0000;
     cursor: pointer;
@@ -80,6 +80,7 @@ body{
     animation-iteration-count: infinite;
     animation-direction: ease-in-out;
     min-height: 6rem;
+    font-family: monospace;
 
 
 }
@@ -101,4 +102,23 @@ body{
     z-index: 2000;
     position: fixed;
     margin-top: 1rem;
+    width: 100%;
+    text-align: center;
+    margin-top: 2em;
+    font-size: 1.6rem;
+    font-family: monospace;
 }
+
+@media (max-width: 768px) {
+    #WarpButton{
+        margin-top: 75vh;
+    }
+    #dont1,
+    #dont2{
+        margin-top: 75vh;
+        font-size: 1rem;
+        text-align: center;
+    }
+    
+}
+

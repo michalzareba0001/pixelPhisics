@@ -30,7 +30,7 @@ window.addEventListener('load', function () {
         }
         warp() {
             //explosion
-            this.ease = Math.random() * 0.09 + 0.02;
+            this.ease = Math.random() * 0.1 - 0.01;
             this.OriginX = (Math.random() * this.effect.width * 5) - this.effect.width * 2.5;
             this.OriginY = (Math.random() * this.effect.height * 5) - this.effect.height * 2.5;
         }
@@ -44,7 +44,7 @@ window.addEventListener('load', function () {
             this.particlesArray = [];
             this.image = document.getElementById('image1');
             this.centerx = this.width * 0.5;
-            this.centery = this.height * 0.5;
+            this.centery = (this.height * 0.5) -50;
             this.x = this.centerx - this.image.width * 0.5 - 0.9;
             this.y = this.centery - this.image.height * 0.5;
             this.gap = 2;
@@ -109,14 +109,31 @@ window.addEventListener('load', function () {
 
     function timer() {
         setInterval(function () {
-            const date = new Date();
-            const year = date.getFullYear();
-            const month = date.getMonth() + 1;
-            const day = date.getDate();
-            const hours = date.getHours();
-            const minutes = date.getMinutes();
-            const seconds = date.getSeconds();
-            time.innerHTML = year + ':' + month + ':' + day + ' ' + hours + ':' + minutes + ':' + seconds;
+            var date = new Date();
+            var year = date.getFullYear();
+            var month = date.getMonth() + 1;
+            var day = date.getDate();
+            var hours = date.getHours();
+            var minutes = date.getMinutes();
+            var seconds = date.getSeconds();
+            var timeZone = date.getTimezoneOffset() / 60;
+            if (seconds < 10) {
+                seconds = '0' + seconds;
+            }
+            if (minutes < 10) {
+                minutes = '0' + minutes;
+            }
+            if (hours < 10) {
+                hours = '0' + hours;
+            }
+            if (day < 10) {
+                day = '0' + day;
+            }
+            if (month < 10) {
+                month = '0' + month;
+            }
+           
+            time.innerHTML = year + '/' + month + '/' + day + ' ' + hours + ':' + minutes + ':' + seconds + ' UTC: ' + timeZone;
         }, 100);
     }
 
@@ -125,4 +142,5 @@ window.addEventListener('load', function () {
 
 
 });
+
 
