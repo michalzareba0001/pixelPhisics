@@ -6,10 +6,16 @@
 
 body{
     background-color: #000;
+   
+    height: 100vh;
+}
+
+.main{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
 }
 
 #canvas1{
@@ -34,10 +40,10 @@ body{
     padding-bottom: 1rem;
     padding-left: 2rem;
     padding-right: 2rem;
-    margin: 1rem;
+    margin-right: 1rem;
+    margin-left: 1rem;;
     background-color: #ff0000;
     color: #ffffff;
-    border-radius: 10px;
     font-size: 1.6rem;
     font-weight: 600;
     max-width: 300%;
@@ -46,12 +52,16 @@ body{
     animation-name: changeColor;
     animation-duration: 1000ms;
     animation-iteration-count: infinite;
+    border: 5px outset #ffffff;
+    transform-style: preserve-3d;
+    min-height: 6rem;
 }
+
 
 #WarpButton:hover{
     background-color: #ffffff;
     color: #ff0000;
-    border: 1px solid #ff0000;
+    border: 5px outset #ff0000;
     cursor: pointer;
 }
 
@@ -59,24 +69,36 @@ body{
 #dont2{
     color: #ffffff;
     margin-top: 85vh;
-    text-align: center;
+    margin-right: 1rem;
+    margin-left: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     padding: 1rem;
     animation-name: blinking;
     animation-duration: 3000ms;
     animation-iteration-count: infinite;
     animation-direction: ease-in-out;
+    min-height: 6rem;
 
 
 }
 
 @keyframes blinking {
-    0% { opacity: 0;}
-    50% { opacity: 1; }
-    100% { opacity: 0; }
+    0% { border: 0.3rem dotted #ffffff;}
+    50% { border: 0.3rem dashed #ffffff; }
+    100% { border: 0.3rem dotted #ffffff; }
 }
 
 @keyframes changeColor{
     0% { color: #000000; }
     50% { color: #ffffff; }
     100% { color: #000000; }
+}
+
+#time{
+    color: #ffffff;
+    z-index: 2000;
+    position: fixed;
+    margin-top: 1rem;
 }

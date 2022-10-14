@@ -29,7 +29,7 @@ window.addEventListener('load', function () {
             this.y += (this.OriginY - this.y) * this.ease;
         }
         warp() {
-          //explosion
+            //explosion
             this.ease = Math.random() * 0.09 + 0.02;
             this.OriginX = (Math.random() * this.effect.width * 5) - this.effect.width * 2.5;
             this.OriginY = (Math.random() * this.effect.height * 5) - this.effect.height * 2.5;
@@ -102,7 +102,27 @@ window.addEventListener('load', function () {
         effect.warp();
     });
 
-    
+    // TIME
+
+    const time = document.getElementById('time');
+   
+
+    function timer() {
+        setInterval(function () {
+            const date = new Date();
+            const year = date.getFullYear();
+            const month = date.getMonth() + 1;
+            const day = date.getDate();
+            const hours = date.getHours();
+            const minutes = date.getMinutes();
+            const seconds = date.getSeconds();
+            time.innerHTML = year + ':' + month + ':' + day + ' ' + hours + ':' + minutes + ':' + seconds;
+        }, 100);
+    }
+
+    timer();
+
+
 
 });
 
