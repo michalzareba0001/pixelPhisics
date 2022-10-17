@@ -29,15 +29,17 @@ window.addEventListener('load', function () {
             context.fillStyle = this.color;
         }
         update() {
-            this.dx = this.effect.mouse.x - this.x;
-            this.dy = this.effect.mouse.y - this.y;
-            this.distance = this.dx * this.dx + this.dy * this.dy;
-            this.force = -this.effect.mouse.radius / this.distance;
+            this.dx = this.effect.anim.x - this.x;
+            this.dy = this.effect.anim.y - this.y;
+       
+            this.dy = this.effect.anim.y - this.y;
+            this.distance = (this.dx * this.dx + this.dy * this.dy);
+            this.force = -this.effect.anim.radius / this.distance;
 
             this.x += (this.vx *= this.friction) + (this.OriginX - this.x) * this.ease;
             this.y += (this.vy *= this.friction) + (this.OriginY - this.y) * this.ease;
 
-            if (this.distance < this.effect.mouse.radius) {
+            if (this.distance < this.effect.anim.radius) {
                 this.angle = Math.atan2(this.dy, this.dx);
                 this.vx += this.force * Math.cos(this.angle);
                 this.vy += this.force * Math.sin(this.angle);
@@ -65,12 +67,29 @@ window.addEventListener('load', function () {
                 radius: 500,
                 x: undefined,
                 y: undefined
+            };
+            this.anim = {
+                radius: 9000,
+                x: 0,
+                y: canvas.height/2
             }
-
+            
             window.addEventListener('mousemove', (event) => {
                 this.mouse.x = event.x;
                 this.mouse.y = event.y;
             });
+            
+            setInterval(() => {
+            if (this.anim.x<canvas.width) {
+                this.anim.x += 40;
+            }
+            else {
+                this.anim.x = 0;;
+            }
+            console.log(this.anim.y);
+        }, 1000/60);
+
+            
         }
         init(context) {
             context.drawImage(this.image, this.x, this.y,);
